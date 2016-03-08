@@ -1,0 +1,23 @@
+{
+  "name": "wyvern",
+  "version": "1.0.0",
+  "description": "Music tracker",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mdhays/wyvern.git"
+  },
+  "author": "Matthew Hays <mdhays1995@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mdhays/wyvern/issues"
+  },
+  "homepage": "https://github.com/mdhays/wyvern#readme",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
+}
