@@ -4,8 +4,10 @@ const express = require('express')
 const app = express()
 const port = process.env.PORT || 3000
 
+app.set('view engine', 'jade')
+
 app.get('/', (req, res) => {
-  res.send('hello')
+  res.render('index')
 })
 
 
