@@ -15,8 +15,9 @@ let db;
 
 app.set('view engine', 'jade');
 
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 
+app.use(bodyParser.json());
 
 app.use(require('node-sass-middleware')({
   src: path.join(__dirname, 'public'),
@@ -37,7 +38,8 @@ app.get('/', (req, res) => {
 });
 
 app.post('/', (req, res) => {
-  db.query(`INSERT INTO chatlog (message) VALUES ('${req.body.msg}')`, (err, result) => {
+  console.log(req)
+  db.query(`INSERT INTO chatlog (message) VALUES ('${req.body.text}')`, (err, result) => {
     if(err) throw err
     console.log(req.body.msg);
     res.send(req.body.msg);
@@ -57,5 +59,3 @@ pg.connect(POSTGRES_URL, (err, client) => {
     console.log(`wyvern running on ${port}`);
   });
 });
-
-
