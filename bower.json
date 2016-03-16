@@ -1,0 +1,25 @@
+{
+  "name": "wyvern",
+  "description": "Music tracker",
+  "main": "server.js",
+  "authors": [
+    "Matthew Hays <mdhays1995@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/mdhays/wyvern",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.0",
+    "bootstrap": "^3.3.6",
+    "angular-route": "^1.5.1",
+    "jquery": "^2.2.1"
+  }
+}

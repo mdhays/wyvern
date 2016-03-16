@@ -1,0 +1,39 @@
+doctype html
+html
+
+  head
+    title wyvern
+    link(href='https://fonts.googleapis.com/css?family=Poiret+One', rel='stylesheet', type='text/css')
+    link(rel='stylesheet', href='vendor/bootstrap/dist/css/bootstrap.min.css')
+    link(rel='stylesheet', href='css/style.css')
+
+    
+  body
+
+    .container
+      
+      .row
+        
+        .col-md-4
+        
+        .col-md-4
+
+          h1 Welcome to wyvern
+
+          .input-group
+            h3 Username
+            input(type='text', name='name', class='form-control', id='name')
+            h3 Message
+            input(type='text', name='msg', class='form-control', id='msg')
+            input(type='button', name='send', class='btn btn-default', id='send' value='send')
+
+          ul(id='messagebox')
+
+        .col-md-4
+
+    script(src='/vendor/jquery/dist/jquery.min.js')
+    script(src='/js/chats.js')
+
+
+
+
