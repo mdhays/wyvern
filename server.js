@@ -40,11 +40,11 @@ app.get('/', (req, res) => {
 
 app.post('/', (req, res) => {
   console.log(req)
-  // db.query(`INSERT INTO chatlog (message) VALUES ('${req.body.text}')`, (err, result) => {
-  //   if(err) throw err
-  //   console.log(req.body.msg);
-  //   res.send(req.body.msg);
-  // });
+  db.query(`INSERT INTO chatlog (message) VALUES ('${req.body.text}')`, (err, result) => {
+    if(err) throw err
+    console.log(req.body.msg);
+    res.send(req.body.msg);
+  });
 });
 
 
@@ -65,6 +65,7 @@ db.connect((err) => {
   ws.on('connection', socket => {
   console.log('socket connected', socket.id)
 
+  // Whenever a user connects to the database, get all the chats.
   db.query('SELECT * FROM chatlog', (err, result) => {
     if (err) throw err;
 
@@ -72,8 +73,8 @@ db.connect((err) => {
   });
 
   socket.on('sendChat', msg => {
-    db.query(`INSERT INTO chatlog (message) VALUES ('${req.body.text}')`,
-      [msg.name, msg.text], (err) => {
+    console.log(msg);
+    db.query(`INSERT INTO chatlog (message) VALUES ('${msg.message}')`, (err) => {
         if (err) throw err;
         // Broadcast emits to all but this socket.
         socket.broadcast.emit('receiveChat', [msg]);
