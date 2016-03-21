@@ -51,10 +51,7 @@ $(document).ready(function() {
       message: text.val()
     };
 
-
-
-    console.log('working');
-    console.log(chat);
+    // Send the chat object to the server.
     ws.emit('sendChat', chat)
     displayChat(chat)
     });  

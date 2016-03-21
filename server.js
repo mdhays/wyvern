@@ -47,7 +47,17 @@ app.post('/', (req, res) => {
   });
 });
 
+app.get('/music', (req, res) => {
 
+  res.render('music');
+
+});
+
+app.get('/callback', (req, res) => {
+
+  res.render('callback');
+
+});
 
 
 db.connect((err) => {
@@ -72,9 +82,10 @@ db.connect((err) => {
     socket.emit('receiveChat', result.rows);
   });
 
+  // Execute this once the client sends their message. chat becomes msg.
   socket.on('sendChat', msg => {
     console.log(msg);
-    db.query(`INSERT INTO chatlog (message) VALUES ('${msg.message}')`, (err) => {
+    db.query(`INSERT INTO chatlog (message) VALUES ('${msg.message}')`, (err, result) => {
         if (err) throw err;
         // Broadcast emits to all but this socket.
         socket.broadcast.emit('receiveChat', [msg]);
