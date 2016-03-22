@@ -1,9 +1,11 @@
 html
   head
+
+  body
+
+    input(type='text', name='song', placeholder='ex: Pineapple Spaceship', id='song')
+    input(type='button', name='songtitle', value='Find', id='find')
+    ul(id='output')
+
     script(src='vendor/jquery/dist/jquery.min.js')
-    script(src='https://connect.soundcloud.com/sdk/sdk-3.0.0.js')
     script(src='/js/music.js')
-
-body
-  ul(id='results')
-
