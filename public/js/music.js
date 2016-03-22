@@ -2,37 +2,37 @@
 $(document).ready(function() {
 
 
-    const client_id = 'e5b95dafbd80c22b802bfa85f59e5073';
-    const base = '//api.soundcloud.com/tracks?linked_partitioning=1&client_id=';
-    const options = '&limit=20&offset=0&q=';
+  const client_id = 'e5b95dafbd80c22b802bfa85f59e5073';
+  const base = '//api.soundcloud.com/tracks?linked_partitioning=1&client_id=';
+  const options = '&limit=20&offset=0&q=';
 
-    // Concatenates the url
-    const scUrl = `${base}${client_id}${options}`;
+  // Concatenates the url
+  const scUrl = `${base}${client_id}${options}`;
 
-    // Loads up the soundcloud widget and listens for events.
-    $(document).ready(function() {
-      
-      const widget = SC.Widget(document.getElementById('soundcloud_widget'));
-      
-      widget.bind(SC.Widget.Events.READY, function() {
-        console.log('Ready...');
-        changeIframeSrc();
-      });
+  // Loads up the soundcloud widget and listens for events.
+    
+  const widget = SC.Widget(document.getElementById('soundcloud_widget'));
+    
+  widget.bind(SC.Widget.Events.READY, function() {
+    console.log('Ready...');
+  });
+  
 
+  widget.bind(SC.Widget.Events.FINISH, function() {
+    changeIframeSrc();
+  });
+   
+  // Function to be called if a song is finished, or if the first song is selected.
 
-    });
-     
-    // Function to be called if a song is finished, or if the first song is selected.
+  function changeIframeSrc() {
 
-    function changeIframeSrc() {
+    const prependStreamURL = 'http://w.soundcloud.com/player/?url=';
+    const test = 'https://api.soundcloud.com/tracks/31204641';
+    const displayAs = '&show_artwork=false&liking=false&sharing=false&auto_play=true';
 
-      const prependStreamURL = 'http://w.soundcloud.com/player/?url=';
-      const test = 'https://api.soundcloud.com/tracks/31204641';
-      const displayAs = '&show_artwork=false&liking=false&sharing=false&auto_play=true';
+    document.getElementById('soundcloud_widget').src = `${prependStreamURL}${test}${displayAs}`;
 
-      document.getElementById('soundcloud_widget').src = `${prependStreamURL}${test}${displayAs}`;
-
-    }
+  }
 
 
 
