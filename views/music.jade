@@ -1,15 +1,14 @@
 html
   
   head
+    link(rel='stylesheet' href='css/style.css')
     script(src='vendor/jquery/dist/jquery.min.js')
     script(src="http://w.soundcloud.com/player/api.js")
     script(src='/js/music.js')
 
   body
 
-    iframe(id='soundcloud_widget', src='http://w.soundcloud.com/player/?url=https://api.soundcloud.com/tracks/31204641', width='420',
-    height='120',
-    frameborder='no')
+    iframe(id='soundcloud_widget', src='http://w.soundcloud.com/player/?url=https://api.soundcloud.com/tracks/31204641', width='420', height='120', frameborder='no')
 
     input(type='text', name='song', placeholder='ex: Pineapple Spaceship', id='song')
     input(type='button', name='songtitle', value='Find', id='find')

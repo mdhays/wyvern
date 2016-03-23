@@ -85,7 +85,7 @@ db.connect((err) => {
   // Execute this once the client sends their message. chat becomes msg.
   socket.on('sendChat', msg => {
     console.log(msg);
-    db.query(`INSERT INTO chatlog (message) VALUES ('${msg.message}')`, (err, result) => {
+    db.query(`INSERT INTO chatlog (username, message) VALUES ('${msg.username}', '${msg.message}')`, (err, result) => {
         if (err) throw err;
         // Broadcast emits to all but this socket.
         socket.broadcast.emit('receiveChat', [msg]);
