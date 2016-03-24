@@ -3,39 +3,58 @@ html
 
   head
     title wyvern
-    link(href='https://fonts.googleapis.com/css?family=Poiret+One', rel='stylesheet', type='text/css')
+    link(href='https://fonts.googleapis.com/css?family=Jura:500', rel='stylesheet', type='text/css')
     link(rel='stylesheet', href='vendor/bootstrap/dist/css/bootstrap.min.css')
     link(rel='stylesheet', href='css/style.css')
 
     
   body
 
-    .container
-      
-      .row
-        
-        .col-md-2
-        
-        .col-md-8
+    .main-content
+      .cont
+        nav(class='navbar navbar-inverse') 
+          .container
+            ul(class='nav navbar-nav')
+              li
+                a(href='#') Chat
+              li
+                a(href='#') Music
+            
 
-          h1 Welcome to wyvern
+      .page
 
-          .input-group
-            h3 Username
-            input(type='text', name='name', class='form-control', id='name')
-            h3 Message
-            input(type='text', name='msg', class='form-control', id='msg')
-            input(type='button', name='send', class='btn btn-default', id='send' value='send')
+        .container
+          
+          .row
+            
+            .col-md-12
 
-          div(id='messagebox')
-            ul
+              h1 Welcome to wyvern
 
-        .col-md-2
+              .input-group
+                h3 Username
+                input(type='text', name='name', class='form-control', id='name')
+                h3 Message
+                input(type='text', name='msg', class='form-control', id='msg')
+                input(type='button', name='send', class='btn btn-default', id='send' value='send')
+
+              div(id='messagebox')
+                ul(id='messages')
+
+
+      .page
+
+        .container
+
+          .row
+
+            .col-md-12
 
     script(src='/vendor/jquery/dist/jquery.min.js')
+    script(src='/vendor/handlebars/handlebars.min.js')
     script(src='/vendor/socket.io-client/socket.io.js')
     script(src='/js/chats.js')
-
-
-
-
+    script(src="http://w.soundcloud.com/player/api.js")
+    script(src='/js/music.js')
+    
+    

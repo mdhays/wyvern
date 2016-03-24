@@ -1,15 +1,21 @@
 body {
-  text-align: center; }
+  text-align: center;
+  font-family: 'Jura', sans-serif;
+  background-color: #003399;
+  color: white; }
 
 .input-group {
   display: block;
   margin: auto; }
 
 #messagebox {
+  margin-top: 40px;
   width: auto;
   height: 400px;
-  background-color: #000000;
-  color: white;
+  border: solid;
+  border-width: 2px;
+  background-color: #002b80;
+  opacity: 0.5;
   overflow-y: scroll; }
 
 .song {

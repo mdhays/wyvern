@@ -3,13 +3,13 @@
 $(document).ready(function() {
 
 
-  const ul = document.querySelector('ul');
+  const ul = document.getElementById('messages');
   const username = $('#name');
   const text = $('#msg');
 
 
   const ws = io.connect();
-
+  
 
   ws.on('connect', (socket) => {
     console.log('socket connected')

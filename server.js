@@ -38,15 +38,6 @@ app.get('/', (req, res) => {
   res.render('index')
 });
 
-app.post('/', (req, res) => {
-  console.log(req)
-  db.query(`INSERT INTO chatlog (message) VALUES ('${req.body.text}')`, (err, result) => {
-    if(err) throw err
-    console.log(req.body.msg);
-    res.send(req.body.msg);
-  });
-});
-
 app.get('/music', (req, res) => {
 
   res.render('music');

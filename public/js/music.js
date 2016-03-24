@@ -14,19 +14,19 @@ $(document).ready(function() {
 
 
   // Loads up the soundcloud widget and listens for events.
-  //////////////////////////////////////////////////
-  // const widget = SC.Widget(document.getElementById('soundcloud_widget'));
+  ////////////////////////////////////////////////
+  const widget = SC.Widget(document.getElementById('soundcloud_widget'));
   
 
 
-  // widget.bind(SC.Widget.Events.READY, function() {
-  //   console.log('Ready...');
-  // });
+  widget.bind(SC.Widget.Events.READY, function() {
+    console.log('Ready...');
+  });
   
 
-  // widget.bind(SC.Widget.Events.FINISH, function() {
-  //   changeIframeSrc();
-  // });
+  widget.bind(SC.Widget.Events.FINISH, function() {
+    changeIframeSrc();
+  });
    
   //////////////////////////////////////////////////
 
@@ -35,7 +35,6 @@ $(document).ready(function() {
   function changeIframeSrc() {
 
     const prependStreamURL = 'http://w.soundcloud.com/player/?url=';
-    // const test = 'https://api.soundcloud.com/tracks/31204641';
     const displayAs = '&show_artwork=true&liking=true&sharing=true&auto_play=true';
 
     document.getElementById('soundcloud_widget').src = `${prependStreamURL}${songURI}${displayAs}`;
@@ -107,7 +106,6 @@ $(document).ready(function() {
     });
 
   });
-
 
 });
   
