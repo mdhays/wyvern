@@ -35,19 +35,7 @@ app.use(express.static('public'));
 
 
 app.get('/', (req, res) => {
-  res.render('index')
-});
-
-app.get('/music', (req, res) => {
-
-  res.render('music');
-
-});
-
-app.get('/callback', (req, res) => {
-
-  res.render('callback');
-
+  res.render('index');
 });
 
 
@@ -64,23 +52,23 @@ db.connect((err) => {
   });
 
   ws.on('connection', socket => {
-  console.log('socket connected', socket.id)
+    console.log('socket connected', socket.id)
 
-  // Whenever a user connects to the database, get all the chats.
-  db.query('SELECT * FROM chatlog', (err, result) => {
-    if (err) throw err;
+    // Whenever a user connects to the database, get all the chats.
+    db.query('SELECT * FROM chatlog', (err, result) => {
+      if (err) throw err;
 
-    socket.emit('receiveChat', result.rows);
-  });
+      socket.emit('receiveChat', result.rows);
+    });
 
-  // Execute this once the client sends their message. chat becomes msg.
-  socket.on('sendChat', msg => {
-    console.log(msg);
-    db.query(`INSERT INTO chatlog (username, message) VALUES ('${msg.username}', '${msg.message}')`, (err, result) => {
-        if (err) throw err;
-        // Broadcast emits to all but this socket.
-        socket.broadcast.emit('receiveChat', [msg]);
-      });
+    // Execute this once the client sends their message. chat becomes msg.
+    socket.on('sendChat', msg => {
+      console.log(msg);
+      db.query(`INSERT INTO chatlog (username, message) VALUES ('${msg.username}', '${msg.message}')`, (err, result) => {
+          if (err) throw err;
+          // Broadcast emits to all but this socket.
+          socket.broadcast.emit('receiveChat', [msg]);
+        });
     });
   });
 });
