@@ -1,8 +1,11 @@
 body {
-  text-align: center;
+  margin-top: 30px;
   font-family: 'Jura', sans-serif;
   background-color: #002b80;
   color: black; }
+
+h1, h3 {
+  text-align: center; }
 
 .input-group {
   display: block;
@@ -18,13 +21,16 @@ body {
   overflow-y: scroll; }
 
 #output {
-  margin-top: 10px;
+  margin-top: 64px;
   width: 420px;
   height: 120px;
   border: solid;
   border-width: 2px;
   background-color: #003399;
   overflow-y: scroll; }
+
+#song {
+  margin-top: 20px; }
 
 .song {
   background: none !important;
@@ -45,5 +51,11 @@ body {
 
 #send {
   margin-top: 10px; }
+
+#find {
+  margin-top: 10px; }
+
+iframe {
+  margin-top: 45px; }
 
 /*# sourceMappingURL=style.css.map */

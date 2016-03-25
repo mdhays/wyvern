@@ -12,18 +12,17 @@ html
 
     .main-content
       .cont
-        nav(class='navbar navbar-inverse') 
+        nav(class='navbar navbar-inverse navbar-fixed-top') 
           .container
             ul(class='nav navbar-nav')
               li
-                a(href='#') Chat
+                a(href='#about') About
               li
-                a(href='#') Music
+                a(href='https://soundcloud.com/stream') Soundcloud
               li
-                a(href='#/about') About
-            
+                a(href='https://github.com/mdhays/wyvern') Github
 
-      .page
+      .home
 
         .container
           
@@ -41,16 +40,20 @@ html
                 input(type='button', name='send', class='btn btn-default', id='send' value='send')
 
                 div(id='messagebox')
+                  h3 chats
                   ul(id='messages')
 
             .col-md-4
 
-              iframe(id='soundcloud_widget', src='http://w.soundcloud.com/player/?url=https://api.soundcloud.com/tracks/31204641', width='420', height='120', frameborder='no')
+              h1 stream
 
-              input(type='text', name='song', placeholder='ex: Pineapple Spaceship', id='song')
-              input(type='button', name='songtitle', value='Find', id='find')
+              iframe(id='soundcloud_widget', src='http://w.soundcloud.com/player/?url=https://api.soundcloud.com/tracks/31204641', width='420', height='120', frameborder='no')
             
               div(id='output')
+
+              .input-group
+                input(type='text', name='song', class='form-control' placeholder='ex: Pineapple Spaceship', id='song')
+                input(type='button', name='songtitle', class='btn btn-default' value='Find', id='find')
 
       .page
 
@@ -62,7 +65,7 @@ html
 
             .col-md-4
 
-              p(id='about') Wyvern is a chat app focused around bringing Soundcloud artists and fans together. As an artist myself, I find it frustrating that there aren't built in features for actually communicating with fans who want to talk. My aim is to solve some of those problems and make it easier for conversations to happen.
+              p(id='about') wyvern is a chat app focused around bringing Soundcloud artists and fans together. As an artist myself, I find it sad that there aren't built in features for actually communicating with fans who want to talk. My aim is to solve some of those problems and make it easier for conversations to happen.
 
             .col-md-4
 

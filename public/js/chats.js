@@ -29,8 +29,7 @@ $(document).ready(function() {
 
   function generateLI (chat) {
     const li = document.createElement('li');
-    const textNode = document.createTextNode(`${chat.username}: ${chat.message}`);
-    console.log(chat);
+    const textNode = document.createTextNode(`${chat.username}:   ${chat.message}`);
     const dataId = document.createAttribute('data-id');
 
     dataId.value = chat._id;
