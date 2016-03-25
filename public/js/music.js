@@ -34,7 +34,7 @@ $(document).ready(function() {
 
   function changeIframeSrc() {
 
-    const prependStreamURL = 'http://w.soundcloud.com/player/?url=';
+    const prependStreamURL = '//w.soundcloud.com/player/?url=';
     const displayAs = '&show_artwork=true&liking=true&sharing=true&auto_play=true';
 
     document.getElementById('soundcloud_widget').src = `${prependStreamURL}${songURI}${displayAs}`;
